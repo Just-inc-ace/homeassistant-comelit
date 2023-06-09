@@ -42,6 +42,8 @@ class ComelitCover(ComelitDevice, CoverEntity):
 
     @property
     def current_cover_position(self):  # -> int | None:
+        if self._position is None:
+            return 100
         return 100 - self._position
     
     def set_cover_position(self, position, **kwargs):
